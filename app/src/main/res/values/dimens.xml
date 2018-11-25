@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movie_row_height">108dp</dimen>
+    <dimen name="overview_width">251dp</dimen>
+    <dimen name="overview_height">68dp</dimen>
+</resources>
