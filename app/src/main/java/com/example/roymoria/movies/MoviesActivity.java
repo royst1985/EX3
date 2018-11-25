@@ -31,6 +31,7 @@ public class MoviesActivity extends AppCompatActivity {
    public class MovieModel {
 
         private String mName;
+       private String mName1;
         private int mImageResourceId;
         private String mOverview;
 
