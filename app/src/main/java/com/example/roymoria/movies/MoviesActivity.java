@@ -34,6 +34,7 @@ public class MoviesActivity extends AppCompatActivity {
        private String mName1;
        private String mName2;
        private String mName3;
+       private String mName4;
         private int mImageResourceId;
         private String mOverview;
 
