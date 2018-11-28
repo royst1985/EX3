@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:fontWeight="400"
+        android:font="@font/alger"/>
+    <font
+        android:fontWeight="400"
+        android:font="@font/arlrd" />
+    <font
+        android:fontWeight="400"
+        android:font="@font/buxtonsketch" />
+    <font
+        android:fontWeight="400"
+        android:font="@font/coopbl" />
+    <font
+        android:fontWeight="400"
+        android:font="@font/engr" />
+</font-family>

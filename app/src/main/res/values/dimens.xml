@@ -3,4 +3,7 @@
     <dimen name="movie_row_height">108dp</dimen>
     <dimen name="overview_width">251dp</dimen>
     <dimen name="overview_height">68dp</dimen>
+    <dimen name="titleSize">20sp</dimen>
+    <dimen name="textPadding">4dp</dimen>
+    <dimen name="topPadding">2dp</dimen>
 </resources>

@@ -5,35 +5,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper.Callback;
-
-import static android.support.v7.widget.helper.ItemTouchHelper.*;
 import java.util.ArrayList;
-import java.util.List;
 
-public class MoviesActivity extends AppCompatActivity {
+public class MoviesActivity extends AppCompatActivity implements Details_screen.MessageFragmentListener {
 
 
-   public class MovieModel {
+    @Override
+    public void onNextMessageClicked() {
+        MessageFragment messageFragment = MessageFragment.newInstance("WORLD !!!");
+        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_frame, messageFragment).commit();
+    }
+
+    public class MovieModel {
 
         private String mName;
-       private String mName1;
-       private String mName2;
-       private String mName3;
         private int mImageResourceId;
         private String mOverview;
 
@@ -138,7 +134,7 @@ public class MoviesActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
             viewHolder.onBindViewHolder(mDataSource.get(i % mDataSource.size()));
-            viewHolder.parentLayout.setOnClickListener(this::onClick,i);
+            viewHolder.parentLayout.setOnClickListener(this::onClick);
         }
 
         @Override
@@ -148,8 +144,7 @@ public class MoviesActivity extends AppCompatActivity {
         }
 
         private void onClick(View view) {
-            Intent largeWindow = new Intent(this,LargeActivity.class);
-            largeWindow.putExtra("image name",getItemCount())
+
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -193,33 +188,22 @@ public class MoviesActivity extends AppCompatActivity {
         //Adding RecyclerView Divider / Separator
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(mAdapter);
-
-        SwipeController swipeController = new SwipeController();
-        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
-        itemTouchhelper.attachToRecyclerView(mRecyclerView);
     }
 
-    class SwipeController extends Callback {
-
-        @Override
-        public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-            return makeMovementFlags(0, LEFT);
-        }
-
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-        }
-    }
+    private static final String FRAGMENT_TAG = "message_fragment";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movies_activity);
         initRecyclerView();
+        MessageFragment  messageFragment = MessageFragment.newInstance("Testing");
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.activity_main_frame, messageFragment, FRAGMENT_TAG ).commit();
+
+
+
+
         //mRecyclerView.setOnClickListener();
     }
 }
