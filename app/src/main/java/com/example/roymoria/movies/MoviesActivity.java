@@ -1,6 +1,5 @@
 package com.example.roymoria.movies;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -17,90 +16,80 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.List;
 
-public class MoviesActivity extends AppCompatActivity implements Details_screen.MessageFragmentListener {
 
+public class MoviesActivity extends AppCompatActivity {
 
-    @Override
-    public void onNextMessageClicked() {
-        MessageFragment messageFragment = MessageFragment.newInstance("WORLD !!!");
-        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_frame, messageFragment).commit();
-    }
+    public class PageOnClickListener implements View.OnClickListener
+    {
+        int pos;
+        public PageOnClickListener(int pos) {
+            this.pos = pos;
+        }
+
+        @Override
+        public void onClick(View v)
+        {
+            Intent openSecondActivity  = new Intent(MoviesActivity.this, MovieDetailActivity.class);
+            openSecondActivity.putExtra("id", pos);
+            startActivity(openSecondActivity);
+        }
+    };
 
     public class MovieModel {
 
-        private String mName;
-        private int mImageResourceId;
-        private String mOverview;
+        private String name;
+        private int imageResourceId;
+        private String overview;
 
-        void SetName(String name){
-            mName = name;
-        }
 
-        void SetOverView(String overview){
-            mOverview = overview;
-        }
-
-        void SetId(int id){
-            mImageResourceId = id;
-        }
-
-        public int getImageRes() {
-            return mImageResourceId;
+        public MovieModel(int imageResourceId, String name,  String overview) {
+            this.name = name;
+            this.imageResourceId = imageResourceId;
+            this.overview = overview;
         }
 
         public String getName() {
-            return mName;
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getImageResourceId() {
+            return imageResourceId;
+        }
+
+        public void setImageResourceId(int imageResourceId) {
+            this.imageResourceId = imageResourceId;
         }
 
         public String getOverview() {
-            return mOverview;
+            return overview;
+        }
+
+        public void setOverview(String overview) {
+            this.overview = overview;
         }
     }
 
-    private ArrayList<MovieModel> LoadMovies() {
 
-        ArrayList<MovieModel> movies = new ArrayList<>(9);
 
-        MovieModel movie1 = new MovieModel();
-        MovieModel movie2 = new MovieModel();
-        MovieModel movie3 = new MovieModel();
-        MovieModel movie4 = new MovieModel();
-        MovieModel movie5 = new MovieModel();
-        MovieModel movie6 = new MovieModel();
-        MovieModel movie7 = new MovieModel();
-        MovieModel movie8 = new MovieModel();
-        MovieModel movie9 = new MovieModel();
+    private List<MovieModel> LoadMovies() {
 
-        movie1.SetId(R.drawable.jurassic);
-        movie2.SetId(R.drawable.meg);
-        movie3.SetId(R.drawable.deadpool);
-        movie4.SetId(R.drawable.black);
-        movie5.SetId(R.drawable.gurdians);
-        movie6.SetId(R.drawable.ocean);
-        movie7.SetId(R.drawable.thor);
-        movie8.SetId(R.drawable.purge);
-        movie9.SetId(R.drawable.inter);
+        List<MovieModel> movies = new ArrayList<>();
 
-        movie1.SetName("Jurassic World - Fallen Kingdom");
-        movie2.SetName("The Meg");
-        movie3.SetName("Deadpool");
-        movie4.SetName("The black panter");
-        movie5.SetName("The guardians of the galaxy");
-        movie6.SetName("Ocean 8");
-        movie7.SetName("Thor");
-        movie8.SetName("The first purge");
-        movie9.SetName("Intestellar");
-
-        movie1.SetOverView("Three years after…");
-        movie2.SetOverView("A deep …");
-        movie3.SetOverView("Three years after…");
-        movie4.SetOverView("A deep …");
-        movie5.SetOverView("Three years after…");
-        movie6.SetOverView("A deep …");
-        movie7.SetOverView("Three years after…");
-        movie8.SetOverView("A deep …");
-        movie9.SetOverView("Three years after…");
+        MovieModel movie1 = new MovieModel(R.drawable.jurassic,"Jurassic World - Fallen Kingdom","Three years after…");
+        MovieModel movie2 = new MovieModel(R.drawable.meg,"The Meg","A deep …");
+        MovieModel movie3 = new MovieModel(R.drawable.deadpool,"Deadpool","Three years after…");
+        MovieModel movie4 = new MovieModel(R.drawable.black,"The black panter","A deep …");
+        MovieModel movie5 = new MovieModel(R.drawable.gurdians,"The guardians of the galaxy","Three years after…");
+        MovieModel movie6 = new MovieModel(R.drawable.ocean,"Ocean 8","A deep …");
+        MovieModel movie7 = new MovieModel(R.drawable.thor,"Thor","Three years after…");
+        MovieModel movie8 = new MovieModel(R.drawable.purge,"The first purge","A deep …");
+        MovieModel movie9 = new MovieModel(R.drawable.inter,"Intestellar","Three years after…");
 
         movies.add(movie1);
         movies.add(movie2);
@@ -118,8 +107,9 @@ public class MoviesActivity extends AppCompatActivity implements Details_screen.
     public class MoviesViewAdapter extends RecyclerView.Adapter<MoviesViewAdapter.ViewHolder> {
 
         private LayoutInflater mInflater;
-        private ArrayList<MovieModel> mDataSource;
-        public MoviesViewAdapter(Context context, ArrayList<MovieModel> movies) {
+        private List<MovieModel> mDataSource;
+
+        public MoviesViewAdapter(Context context, List<MovieModel> movies) {
             mDataSource = movies;
             mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
@@ -127,49 +117,43 @@ public class MoviesActivity extends AppCompatActivity implements Details_screen.
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View view = mInflater.inflate(R.layout.item_movie, viewGroup, false);
+            View view = mInflater.inflate(R.layout.movie_row_screen, viewGroup, false);
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
             viewHolder.onBindViewHolder(mDataSource.get(i % mDataSource.size()));
-            viewHolder.parentLayout.setOnClickListener(this::onClick);
+            PageOnClickListener on_click = new PageOnClickListener (i % mDataSource.size());
+            viewHolder.clLayout.setOnClickListener(on_click);
         }
 
         @Override
         public int getItemCount() {
-            //return mDataSource.size();
-            return Integer.MAX_VALUE;
+            return mDataSource.size();
+            //return Integer.MAX_VALUE;
         }
-
-        private void onClick(View view) {
-
-        }
-
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             public final ImageView ivImage;
             public final TextView tvTitle;
             public final TextView tvOverview;
-            public ConstraintLayout parentLayout;
+            public final ConstraintLayout clLayout;
 
             public ViewHolder(View view) {
                 super(view);
-                ivImage = view.findViewById(R.id.movie_image);
-                tvTitle = view.findViewById(R.id.movie_title);
-                tvOverview = view.findViewById(R.id.movie_overview);
-                parentLayout = view.findViewById(R.id.ConstraintLayout);
+                ivImage = view.findViewById(R.id.singleMoviePic);
+                tvTitle = view.findViewById(R.id.singleMovieTitle);
+                tvOverview = view.findViewById(R.id.singleMovieContext);
+                clLayout = view.findViewById(R.id.singleMovieView);
             }
 
             public void onBindViewHolder(MovieModel movieModel) {
-
-                ivImage.setImageResource(movieModel.getImageRes());
+                ivImage.setImageResource(movieModel.getImageResourceId());
                 tvTitle.setText(movieModel.getName());
                 tvOverview.setText(movieModel.getOverview());
             }
         }
-
     }
 
     private RecyclerView mRecyclerView;
@@ -178,7 +162,7 @@ public class MoviesActivity extends AppCompatActivity implements Details_screen.
 
     private void initRecyclerView() {
 
-        ArrayList<MovieModel> dataSource = LoadMovies();
+        List<MovieModel> dataSource = LoadMovies();
         mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new MoviesViewAdapter(this,dataSource);
 
@@ -190,19 +174,10 @@ public class MoviesActivity extends AppCompatActivity implements Details_screen.
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private static final String FRAGMENT_TAG = "message_fragment";
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movies_activity);
         initRecyclerView();
-        MessageFragment  messageFragment = MessageFragment.newInstance("Testing");
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.activity_main_frame, messageFragment, FRAGMENT_TAG ).commit();
-
-
-
 
         //mRecyclerView.setOnClickListener();
     }
