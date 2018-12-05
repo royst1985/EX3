@@ -14,6 +14,13 @@
     <string name="movie_trailer">MOVIE TRAILER</string>
     <string name="trailerUrl">https://www.youtube.com/watch?v=6ZfuNTqbHE8</string>
     <string name="lorem_ipsum">test1</string>
+    <string name="item_threads">Open Threads Handler Activity</string>
+    <string name="item_async">Open Async Task Activity</string>
+    <string name="create">Create</string>
+    <string name="str_start">Start</string>
+    <string name="str_create">Create</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="txt_status">Status</string>
     <string-array name="movie_Jurassic">
         <item>"Jurassic World - Fallen Kingdom"</item>
         <item>"A small team of mercenaries arrives on the abandoned Isla Nublar to collect DNA from the remains of the Indominus rex at the bottom of the park's lagoon. After successfully collecting a bone fragment, the team's survivors barely escape the island following attacks by the Mosasaurus and Tyrannosaurus rex; in the ensuing chaos the Mosasaurus escapes into open water.
@@ -81,5 +88,7 @@
         <item>1/9/2018</item>
         <item>Mars</item>
     </string-array>
+    <string name="title_activity_async_task">AsyncTaskActivity</string>
+    <string name="title_activity_thread_handler">ThreadHandler</string>
 
 </resources>

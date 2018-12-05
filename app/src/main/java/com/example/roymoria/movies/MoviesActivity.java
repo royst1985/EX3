@@ -1,81 +1,42 @@
 package com.example.roymoria.movies;
-
-import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MoviesActivity extends AppCompatActivity {
 
-    public class PageOnClickListener implements View.OnClickListener
-    {
-        int pos;
-        public PageOnClickListener(int pos) {
-            this.pos = pos;
-        }
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-        @Override
-        public void onClick(View v)
-        {
-            Intent openSecondActivity  = new Intent(MoviesActivity.this, MovieDetailActivity.class);
-            openSecondActivity.putExtra("id", pos);
-            startActivity(openSecondActivity);
-        }
-    };
-
-    public class MovieModel {
-
-        private String name;
-        private int imageResourceId;
-        private String overview;
-
-
-        public MovieModel(int imageResourceId, String name,  String overview) {
-            this.name = name;
-            this.imageResourceId = imageResourceId;
-            this.overview = overview;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public int getImageResourceId() {
-            return imageResourceId;
-        }
-
-        public void setImageResourceId(int imageResourceId) {
-            this.imageResourceId = imageResourceId;
-        }
-
-        public String getOverview() {
-            return overview;
-        }
-
-        public void setOverview(String overview) {
-            this.overview = overview;
-        }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.movies_activity);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        initRecyclerView();
     }
 
-
+    private void initRecyclerView() {
+        List<MovieModel> dataSource = LoadMovies();
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new MoviesViewAdapter(this,dataSource);
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+        //Adding RecyclerView Divider / Separator
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.setAdapter(mAdapter);
+    }
 
     private List<MovieModel> LoadMovies() {
 
@@ -104,82 +65,35 @@ public class MoviesActivity extends AppCompatActivity {
         return movies;
     }
 
-    public class MoviesViewAdapter extends RecyclerView.Adapter<MoviesViewAdapter.ViewHolder> {
-
-        private LayoutInflater mInflater;
-        private List<MovieModel> mDataSource;
-
-        public MoviesViewAdapter(Context context, List<MovieModel> movies) {
-            mDataSource = movies;
-            mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View view = mInflater.inflate(R.layout.movie_row_screen, viewGroup, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-            viewHolder.onBindViewHolder(mDataSource.get(i % mDataSource.size()));
-            PageOnClickListener on_click = new PageOnClickListener (i % mDataSource.size());
-            viewHolder.clLayout.setOnClickListener(on_click);
-        }
-
-        @Override
-        public int getItemCount() {
-            return mDataSource.size();
-            //return Integer.MAX_VALUE;
-        }
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            public final ImageView ivImage;
-            public final TextView tvTitle;
-            public final TextView tvOverview;
-            public final ConstraintLayout clLayout;
-
-            public ViewHolder(View view) {
-                super(view);
-                ivImage = view.findViewById(R.id.singleMoviePic);
-                tvTitle = view.findViewById(R.id.singleMovieTitle);
-                tvOverview = view.findViewById(R.id.singleMovieContext);
-                clLayout = view.findViewById(R.id.singleMovieView);
-            }
-
-            public void onBindViewHolder(MovieModel movieModel) {
-                ivImage.setImageResource(movieModel.getImageResourceId());
-                tvTitle.setText(movieModel.getName());
-                tvOverview.setText(movieModel.getOverview());
-            }
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.tool_bar, menu);
+        return true;
     }
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent openSecondActivity;
+        switch (item.getItemId()) {
+            case R.id.action_async:
+                openSecondActivity  = new Intent(this, AsyncTaskActivity.class);
+                //openSecondActivity.putExtra("id", pos);
+                startActivity(openSecondActivity);
+                return true;
 
-    private void initRecyclerView() {
+            case R.id.action_threads:
+                openSecondActivity  = new Intent(this, AsyncTaskActivity.class);
+                //openSecondActivity.putExtra("id", pos);
+                startActivity(openSecondActivity);
+                return true;
 
-        List<MovieModel> dataSource = LoadMovies();
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new MoviesViewAdapter(this,dataSource);
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
 
-        mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        //Adding RecyclerView Divider / Separator
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        mRecyclerView.setAdapter(mAdapter);
-    }
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.movies_activity);
-        initRecyclerView();
-
-        //mRecyclerView.setOnClickListener();
+        }
     }
 }
 
