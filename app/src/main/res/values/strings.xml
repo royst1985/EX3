@@ -23,7 +23,8 @@
     <string name="txt_status">Status</string>
     <string-array name="movie_Jurassic">
         <item>"Jurassic World - Fallen Kingdom"</item>
-        <item>"A small team of mercenaries arrives on the abandoned Isla Nublar to collect DNA from the remains of the Indominus rex at the bottom of the park's lagoon. After successfully collecting a bone fragment, the team's survivors barely escape the island following attacks by the Mosasaurus and Tyrannosaurus rex; in the ensuing chaos the Mosasaurus escapes into open water.
+        <item>
+                "A small team of mercenaries arrives on the abandoned Isla Nublar to collect DNA from the remains of the Indominus rex at the bottom of the park's lagoon. After successfully collecting a bone fragment, the team's survivors barely escape the island following attacks by the Mosasaurus and Tyrannosaurus rex; in the ensuing chaos the Mosasaurus escapes into open water.
                 A U.S. Senate hearing in Washington, D.C. debates whether Isla Nublar's dinosaurs should be saved from an impending volcanic eruption from the island's thought to be dormant volcano Mount Sibo. Mathematician Dr. Ian Malcolm testifies that the dinosaurs should be allowed to perish to correct John Hammond's mistake of cloning them. Meanwhile, Jurassic World's former operations manager, Claire Dearing, has established the Dinosaur Protection Group to save the animals. After the Senate rules against rescuing the dinosaurs, Hammond's former partner, Benjamin Lockwood, summons Claire to his Northern California estate. Lockwood and his aide, Eli Mills, reveal a plan to relocate the dinosaurs to a new island sanctuary free from human interference. Claire is needed to help reactivate the park's dinosaur tracking system to locate the animals, particularly Blue, the last surviving Velociraptor. Although they are estranged, Claire recruits Jurassic World's former Velociraptor trainer and Blue's alpha, Owen Grady, to help capture her.
                 On Isla Nublar, Claire and former park technician Franklin Webb reactivate the online tracking system. Owen, paleo-veterinarian Zia Rodriguez, and a mercenary team led by Ken Wheatley search for and find Blue. The encounter escalates, resulting in a mercenary soldier shooting Blue, and Wheatley tranquilizing Owen. The mercenaries take Zia with them to treat Blue's injury. The mercenary ship, loaded with the captured dinosaurs, departs for the U.S. mainland as the volcano violently erupts and the uncaptured dinosaurs including a lone Brachiosaurus are left behind die in the eruption. Claire, Franklin, and Owen sneak aboard in time and assist Zia in transfusing Blue with Tyrannosaurus blood. The group now realize that the captured dinosaurs were never being transported to a new island and are for another purpose.
                 At the estate, Lockwood's orphaned pre-teen granddaughter Maisie overhears Mills and auctioneer Gunnar Eversol secretly planning to auction the captured dinosaurs on the black market. They will also unveil the Indoraptor, a new genetically-modified dinosaur created by geneticist Dr. Henry Wu using Indominus rex and Velociraptor DNA. Wu wants Blue's DNA to create an enhanced Indoraptor, unaware that Blue's blood is contaminated. After Maisie informs Lockwood about the auction, he confronts Mills, who suffocates him to death with a pillow. Maisie is later revealed to have been cloned from Lockwood's deceased daughter and is the reason John Hammond, who opposed human cloning, ended their association."
@@ -32,61 +33,81 @@
         <item>1/1/2018</item>
     </string-array>
     <string-array name="movie_Meg">
-        <item>"The Meg"</item>
-        <item>"A deep …"</item>
-        <item>Mars</item>
+            <item>"The Meg"</item>
+        <item>
+            "A rescue team led by Jonas Taylor is saving a group of sailors trapped inside a sunken nuclear submarine when Jonas sees the hull of the submarine being damaged by an unknown creature. Two rescuers are stuck in the damaged submarine and say their return to the rescue submersible will take a few minutes. Taylor leaves them behind as he is afraid they will all die if they wait. As they leave, the damaged sub explodes. Taylor's claim is that a giant sea creature caused the disaster. He is dismissed by his teammate Dr. Heller, who believes Taylor was affected with pressure-induced psychosis and blames him for the loss of their friends.
+            Five years later, billionaire Jack Morris meets Dr. Minway Zhang at the underwater research facility "Mana One", which Morris finances.
+            Zhang and his daughter, Suyin, an oceanographer, are supervising a mission to explore what may be a deeper section of the Marianas trench,
+            concealed by a thermocline cloud of hydrogen sulfide. The mission is being conducted by Lori (Taylor's ex-wife),
+            Toshi, and The Wall in a submersible. The mission appears to be going well until a very large creature hits the submersible, causing it to lose contact with Mana One."
+        </item>
+        <item>https://www.youtube.com/watch?v=udm5jUA-2bs</item>
         <item>1/2/2018</item>
 
     </string-array>
     <string-array name="movie_Deadpool">
         <item>"Deadpool"</item>
-        <item>"Three years after…"</item>
-        <item>Mars</item>
+        <item>
+            "For a time, writers who followed generally ignored the fourth wall entirely, until Gail Simone took over with issue.
+            Her version is remembered for the frequent use of the "little yellow boxes. Deadpool lasted until issue,
+            at which point it was relaunched as a new title with a similar character called Agent X in 2002. This occurred during a line-wide revamp of X-Men related comics,
+            with Cable becoming Soldier X and X-Force becoming X-Statix. Simone notes that "When I took the Deadpool job, the revamp hadn't been planned, so it was a complete surprise.
+            Thankfully, we heard about it in time to make adjustments to the early scripts.
+            It appeared that Deadpool was killed in an explosion fighting the supervillain Black Swan. Deadpool's manager, Sandi Brandenberg later founded Agency X with a mysterious man called Alex Hayden,
+            who took the name dubbed Agent X. Deadpool later returned to the series.
+            Simone left the title after seven issues due to creative differences with the series editor, but then returned to conclude with is"
+        </item>
+        <item>https://www.youtube.com/watch?v=3aYUjm35wN0</item>
         <item>1/3/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Black">
-        <item>"The black panter"</item>
-        <item>"A deep …"</item>
-        <item>Mars</item>
+        <item>"The black panther"</item>
+        <item>
+            "After receiving numerous urgent official letters requesting him to return to his increasingly troubled homeland,[50] the Panther eventually
+            leaves his active Avengers membership to return to a Wakanda on the brink of civil war, bringing Lynne with him. After defeating
+            would-be usurper Erik Killmonger and his minions,[51] the Panther ventures to the American South to battle the Ku Klux Klan.[52] He later
+            gains possession of the mystical time-shifting artifacts known as King Solomon's Frogs.[53] These produce an alternate version of T'Challa from a future 10 years hence, a merry, telepathic Panther with a terminal brain aneurysm, whom T'Challa places in cryogenic stasis.
+            Later, while searching for and finding his stepmother Ramonda, the Panther contends with South African authorities during Apartheid.[54] T'Challa eventually proposes and becomes engaged to Monica Lynne,[55] though the couple never marry.
+            Years later, the Panther accepts a Washington, D.C. envoy, Everett K. Ross, and faces multiple threats to Wakanda's sovereignty. Ross assists him in many of these threats. In gratitude, the Panther often risks much for Ross in return.
+            The first threat he and Ross encounter is "Xcon", an alliance of rogue intelligence agents backing a coup led by the Reverend Achebe.[56] Afterward, Killmonger resurfaces with a plot to destroy Wakanda's economy. This forces T'Challa to nationalize foreign companies.
+            Killmonger then defeats him in ritual combat, thus inheriting the role of Black Panther,[58] but falls into a coma upon eating the heart-shaped herb—poisonous to anyone outside the royal bloodline, which had a hereditary immunity to its toxic effects.[59] T'Challa preserves his rival's life rather than allowing him to die.
+            Later, T'Challa finds he has a brain aneurysm like his alternate future self, and succumbs to instability and hallucinations. After his
+            mental state almost causes tribal warfare, the Panther hands power to his council[60] and hides in New York City. There he mentors police officer
+            Kasper Cole (who had adopted an abandoned Panther costume), an experience that gives T'Challa the strength to face his illness, reclaim his position, and return to
+            active membership in the Avengers, whom he helps secure special United Nations status."
+        </item>
+        <item>https://www.youtube.com/watch?v=OZZ81-vW-Kc</item>
         <item>1/4/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Guardians">
         <item>"The guardians of the galaxy"</item>
         <item>"Three years after…"</item>
-        <item>Mars</item>
+        <item>https://www.youtube.com/watch?v=shpWtxNyBho</item>
         <item>1/5/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Thor">
         <item>"Thor"</item>
         <item>"A deep …"</item>
-        <item>Mars</item>
+        <item>https://www.youtube.com/watch?v=9Zq0ZRHGDXE</item>
         <item>1/6/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Purge">.
-
         <item>"The first purge"</item>
         <item>"Three years after…"</item>
-        <item>Mars</item>
+        <item>https://www.youtube.com/watch?v=UL29y0ah92w</item>
         <item>1/7/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Interstellar">
         <item>"Interstellar"</item>
         <item>"A deep …"</item>
-        <item>Mars</item>
+        <item>https://www.youtube.com/watch?v=1NMxxfM9mYM</item>
         <item>1/8/2018</item>
-        <item>Mars</item>
     </string-array>
     <string-array name="movie_Ocean">
-        <item>"Ocean"</item>
+        <item>"Ocean 8"</item>
         <item>"Three years after…"</item>
-        <item>Mars</item>
+        <item>https://www.youtube.com/watch?v=MFWF9dU5Zc0</item>
         <item>1/9/2018</item>
-        <item>Mars</item>
     </string-array>
     <string name="title_activity_async_task">AsyncTaskActivity</string>
     <string name="title_activity_thread_handler">ThreadHandler</string>

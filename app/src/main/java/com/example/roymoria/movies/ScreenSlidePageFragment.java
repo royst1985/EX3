@@ -2,6 +2,7 @@ package com.example.roymoria.movies;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,17 +10,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class ScreenSlidePageFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-
-    public ScreenSlidePageFragment() {
-        // Required empty public constructor
-    }
+    String mUrl = null;
 
     // TODO: Rename and change types and number of parameters
     public static ScreenSlidePageFragment newInstance(int imageResourceIdLarge, int imageResourceId, int movieId) {
@@ -33,14 +31,6 @@ public class ScreenSlidePageFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
-    }
-
     @SuppressLint("ResourceAsColor")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,58 +39,33 @@ public class ScreenSlidePageFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
         ImageView imageTop = rootView.findViewById(R.id.TopIV);
         ImageView imageCenter = rootView.findViewById(R.id.centerIV);
+        TextView title = rootView.findViewById(R.id.title);
+        TextView context = rootView.findViewById(R.id.intro);;
+        TextView release = rootView.findViewById(R.id.released);
+        Button startTrilar = rootView.findViewById(R.id.btn_movie_trailer);
         Bundle args = getArguments();
         Resources res = getResources();
+
         String[] movie = res.getStringArray(args.getInt("title"));
         int imageId = Integer.parseInt(args.getString("image",""));
-        imageCenter.setImageResource(imageId);
         int imageIdLarge = Integer.parseInt(args.getString("imageLarge",""));
+        imageCenter.setImageResource(imageId);
         imageTop.setImageResource(imageIdLarge);
-        TextView title = rootView.findViewById(R.id.title);
         title.setText(movie[0]);
-        TextView context = rootView.findViewById(R.id.intro);;
         context.setText(movie[1]);
-        TextView release = rootView.findViewById(R.id.released);
         release.setText(movie[3]);
+        mUrl = movie[2];
+        startTrilar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openWebPage(mUrl);
+            }
+        });
         return rootView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    private void openWebPage(String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        startActivity(intent);
     }
 }

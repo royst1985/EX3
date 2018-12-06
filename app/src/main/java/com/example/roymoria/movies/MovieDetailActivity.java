@@ -98,16 +98,4 @@ public class MovieDetailActivity extends FragmentActivity {
             return fragments.size();
         }
     }
-
-    public void OpenLink(View view)
-    {
-        openWebPage(getString(R.string.trailerUrl));
-    }
-    private void openWebPage(String url) {
-        Uri webpage = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
 }

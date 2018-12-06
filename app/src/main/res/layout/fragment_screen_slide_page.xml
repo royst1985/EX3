@@ -75,12 +75,11 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/movie_trailer"
+                        android:id="@+id/btn_movie_trailer"
                         android:layout_width="155dp"
                         android:layout_height="34dp"
                         android:layout_gravity="bottom"
                         android:background="@color/Purple"
-                        android:onClick="OpenLink"
                         android:shadowColor="@color/Blue"
                         android:text="@string/movie_trailer"
                         android:textColor="@color/White"
