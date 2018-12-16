@@ -88,6 +88,12 @@ public class MoviesActivity extends AppCompatActivity {
                 startActivity(openSecondActivity);
                 return true;
 
+            case R.id.background_service:
+                openSecondActivity  = new Intent(this, BackgroundServiceActivity.class);
+                //openSecondActivity.putExtra("id", pos);
+                startActivity(openSecondActivity);
+                return true;
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

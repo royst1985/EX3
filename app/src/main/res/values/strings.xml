@@ -33,7 +33,7 @@
         <item>1/1/2018</item>
     </string-array>
     <string-array name="movie_Meg">
-            <item>"The Meg"</item>
+        <item>"The Meg"</item>
         <item>
             "A rescue team led by Jonas Taylor is saving a group of sailors trapped inside a sunken nuclear submarine when Jonas sees the hull of the submarine being damaged by an unknown creature. Two rescuers are stuck in the damaged submarine and say their return to the rescue submersible will take a few minutes. Taylor leaves them behind as he is afraid they will all die if they wait. As they leave, the damaged sub explodes. Taylor's claim is that a giant sea creature caused the disaster. He is dismissed by his teammate Dr. Heller, who believes Taylor was affected with pressure-induced psychosis and blames him for the loss of their friends.
             Five years later, billionaire Jack Morris meets Dr. Minway Zhang at the underwater research facility "Mana One", which Morris finances.
@@ -111,5 +111,10 @@
     </string-array>
     <string name="title_activity_async_task">AsyncTaskActivity</string>
     <string name="title_activity_thread_handler">ThreadHandler</string>
+    <string name="open_background_service_activity">Open Background Service Activity</string>
+    <string name="start_service">Start service</string>
+    <string name="the_progress">The progress</string>
+    <string name="zero_precent">0%</string>
+    <string name="start_interservice">Start interservice</string>
 
 </resources>

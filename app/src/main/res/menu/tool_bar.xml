@@ -10,4 +10,8 @@
     <item android:id="@+id/action_threads"
         android:title="@string/item_threads"
         app:showAsAction="never"/>
+
+    <item android:id="@+id/background_service"
+        android:title="@string/open_background_service_activity"
+        app:showAsAction="never"/>
 </menu>
