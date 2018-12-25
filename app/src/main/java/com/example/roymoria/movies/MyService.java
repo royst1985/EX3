@@ -14,12 +14,11 @@ import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 
-import static android.content.ContentValues.TAG;
-import static java.security.AccessController.getContext;
 import android.os.Process;
 
 
 public class MyService extends Service {
+    public static final String TAG = "BackgroundHandler";
 
     private static final int FOREGROUND_ID = 1338;
 
@@ -33,7 +32,7 @@ public class MyService extends Service {
     Looper mServiceLooper;
     ServiceHandler mServiceHandler;
 
-    Boolean isDestroyed;
+    boolean isDestroyed;
     public MyService() {
     }
 
@@ -71,6 +70,7 @@ public class MyService extends Service {
 
     }
 
+
     @Override
     public void onDestroy() {
         isDestroyed = true;
@@ -82,9 +82,6 @@ public class MyService extends Service {
         return mBinder;
     }
 
-    public void uploadPicture(String path){
-        // upload image to imgur
-    }
 
     private final class ServiceHandler extends Handler {
         public ServiceHandler(Looper looper){
@@ -93,7 +90,8 @@ public class MyService extends Service {
             @Override public void handleMessage(Message msg) {
 // Well calling mServiceHandler.sendMessage(message);  from onStartCommand this method will be called.
             // Add your cpu-blocking activity here
-                Boolean isDestroyed = false;
+
+                isDestroyed = false;
                 for (int i = 0; i <= 100 && !isDestroyed; i++) {
                 SystemClock.sleep(1000);
                 Intent intent = new Intent(BackgroundProgressReceiver.PROGRESS_UPDATE_ACTION);
